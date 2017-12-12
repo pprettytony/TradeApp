@@ -45,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
         buyDeals.enqueue(new Callback<List<BuyDeals>>() {
             @Override
             public void onResponse(Call<List<BuyDeals>> call, Response<List<BuyDeals>> response) {
-                Log.d("LOG", "in");
                 if(response.isSuccessful()) {
                     recyclerView.setAdapter(new RecyclerAdapter(response.body()));
                 }
