@@ -1,6 +1,6 @@
 package com.example.tom.tradeapp.interfaces;
 
-import com.example.tom.tradeapp.ApiClasses.BuyDeals;
+import com.example.tom.tradeapp.ApiClasses.DealsAPI;
 
 import java.util.List;
 
@@ -14,5 +14,5 @@ import retrofit2.http.Path;
 
 public interface BtcTradeInterface {
     @GET("{coin}")
-    Call<List<BuyDeals>> deals(@Path("coin") String coinName);
+    Call<List<DealsAPI>> deals(@Path("coin") String coinName);
 }

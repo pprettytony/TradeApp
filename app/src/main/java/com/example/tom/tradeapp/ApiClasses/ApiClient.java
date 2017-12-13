@@ -1,4 +1,4 @@
-package com.example.tom.tradeapp;
+package com.example.tom.tradeapp.ApiClasses;
 
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
