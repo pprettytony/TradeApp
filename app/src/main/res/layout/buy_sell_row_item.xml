@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp">
+        <TextView
+            android:id="@+id/priceTvBuyRequest"
+            style="@style/MyTextViewStyle"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            tools:text="priceBuy"
+            android:layout_width="0dp"
+            android:layout_weight="2"/>
+        <TextView
+            android:id="@+id/amountTvBuyRequest"
+            style="@style/MyTextViewStyle"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            tools:text="amountSell"
+            android:layout_width="0dp"
+            android:layout_weight="2"/>
+
+        <TextView
+            android:id="@+id/sumTvBuyRequest"
+            style="@style/MyTextViewStyle"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            tools:text="usernameSell"
+            android:layout_width="0dp"
+            android:layout_weight="2"/>
+    </LinearLayout>
+    <LinearLayout android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+        <View
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"/>
+    </LinearLayout>
+
+</LinearLayout>

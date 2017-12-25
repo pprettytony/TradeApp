@@ -10,8 +10,8 @@
     <string-array name="coinsItems">
         <item>KRB</item>>
         <item>BTC</item>>
-        <item>DOGE</item>>
         <item>ETH</item>>
+        <item>DOGE</item>>
         <item>XMR</item>>
     </string-array>
 </resources>

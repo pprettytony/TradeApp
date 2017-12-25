@@ -10,7 +10,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiClient {
 
-    public static final String BASE_URL = "https://btc-trade.com.ua/api/deals/";
+    public static final String BASE_URL = "https://btc-trade.com.ua/api/";
 
     public static Retrofit retrofit = null;
 

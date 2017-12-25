@@ -75,6 +75,7 @@ public class NavigationActivity extends AppCompatActivity
             startActivity(new Intent(this, DealsActivity.class));
 
         } else if (id == R.id.nav_sell) {
+            startActivity(new Intent(this, BuySellActivity.class));
 
         } else if (id == R.id.nav_login) {
 

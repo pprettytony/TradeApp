@@ -1,16 +1,19 @@
 package com.example.tom.tradeapp.activities;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
-import com.example.tom.tradeapp.ApiClasses.DealsAPI;
 import com.example.tom.tradeapp.ApiClasses.ApiClient;
+import com.example.tom.tradeapp.ApiClasses.BuySellRequestAPI;
+import com.example.tom.tradeapp.ApiClasses.DealsAPI;
 import com.example.tom.tradeapp.R;
+import com.example.tom.tradeapp.adapters.BuySellRequestRA;
 import com.example.tom.tradeapp.adapters.DealsRA;
 import com.example.tom.tradeapp.interfaces.BtcTradeInterface;
 
@@ -20,7 +23,11 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class DealsActivity extends AppCompatActivity{
+/**
+ * Created by Tom on 26.12.2017.
+ */
+
+public class BuySellActivity extends AppCompatActivity{
 
     public RecyclerView.LayoutManager layoutManager;
     public RecyclerView recyclerView;
@@ -29,15 +36,16 @@ public class DealsActivity extends AppCompatActivity{
     String chose;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_deals);
+        setContentView(R.layout.activity_buysell_request);
 
-        recyclerView = findViewById(R.id.recyclerViewDeals);
+
+        recyclerView = findViewById(R.id.recyclerViewBuySellRequest);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
-        spinner = findViewById(R.id.spinner);
+        spinner = findViewById(R.id.spinnerBuySell);
 
 
         btcTrade = ApiClient.getApiClient().create(BtcTradeInterface.class);
@@ -65,18 +73,21 @@ public class DealsActivity extends AppCompatActivity{
                         break;
                 }
 
-                Call<List<DealsAPI>> buyDeals = btcTrade.deals(chose);
+                Call<List<BuySellRequestAPI>> buyDeals = btcTrade.request(chose);
 
-                buyDeals.enqueue(new Callback<List<DealsAPI>>() {
+                buyDeals.enqueue(new Callback<List<BuySellRequestAPI>>() {
+
                     @Override
-                    public void onResponse(Call<List<DealsAPI>> call, Response<List<DealsAPI>> response) {
+                    public void onResponse(Call<List<BuySellRequestAPI>> call, Response<List<BuySellRequestAPI>> response) {
+//GET BAD GATEWAY 502 WTF????
                         if(response.isSuccessful()) {
-                            recyclerView.setAdapter(new DealsRA(response.body()));
+                            Toast.makeText(BuySellActivity.this, "Success recycler", Toast.LENGTH_SHORT).show();
+                            recyclerView.setAdapter(new BuySellRequestRA(response.body()));
                         }
                     }
 
                     @Override
-                    public void onFailure(Call<List<DealsAPI>> call, Throwable t) {
+                    public void onFailure(Call<List<BuySellRequestAPI>> call, Throwable t) {
 
                     }
                 });
